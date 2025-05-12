@@ -113,7 +113,9 @@ const EventPage = () => {
                 <span>Loading...</span>
             ) : !compareResponse ? (
                 <>
-                    <ImageSection imagesPath={imagesPath} />
+                    {imagesPath.length && (
+                        <ImageSection imagesPath={imagesPath} />
+                    )}
                     <div className="flex flex-col gap-4 lg:flex-row">
                         <button
                             className="rounded-lg border-2 px-4 py-2"
@@ -165,7 +167,9 @@ const EventPage = () => {
             ) : (
                 <>
                     <span>{`Found ${compareResponse.images.length} match${compareResponse.images.length === 1 ? '' : 'es'}`}</span>
-                    <ImageSection imagesPath={compareResponse.images} />
+                    {imagesPath.length && (
+                        <ImageSection imagesPath={compareResponse.images} />
+                    )}
 
                     <div className="flex flex-col gap-4 lg:flex-row">
                         {compareResponse.images.length > 0 && (
